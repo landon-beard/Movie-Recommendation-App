@@ -1,0 +1,33 @@
+/* dark_mode.css */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+#dark-mode-toggle {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#dark-mode-toggle.top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode h1,
+body.dark-mode h3,
+body.dark-mode p {
+    color: #010007; /* Adjust the color as needed */
+}

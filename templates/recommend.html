@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark_mode.css') }}" id="dark-mode-styles">
+    <title>Movie Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recommendations.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Movies</h1>
+
+        <div class="buttons-container">
+            <a href="{{ url_for('recommend') }}" class="back-button">Back</a>
+            <button onclick="location.reload();" class="refresh-button">Refresh Movies</button>
+            <button id="dark-mode-toggle">Toggle Dark Mode</button>
+        </div>
+
+        <ul class="top-movies">
+            <!-- Inside the loop where recommended movies are displayed -->
+            {% for movie, tmdb_link, poster_path, user_score in recommendations %}
+            <li>
+                <img src="https://image.tmdb.org/t/p/w200{{ poster_path }}" alt="{{ movie }}">
+                <h3>{{ movie }}</h3>
+                <a href="{{ tmdb_link }}" target="_blank">TMDB</a>
+                {% if user_score is not none %}
+                    <p>User Score: {{ user_score }}/10</p>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='js/dark_mode.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark_mode.css') }}" id="dark-mode-styles">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bad_movies.css') }}">
+    <title>Trash Movie of the Day</title>
+</head>
+<body>
+    <div class="container">
+        <button id="dark-mode-toggle" class="top-right">Toggle Dark Mode</button>
+        <h1>Trash Movie of the Day</h1>
+        <div class="buttons">
+            <a href="{{ url_for('index') }}" class="back-button left-align">Back</a>
+        </div>
+        <ul class="low-rated-movies" id="low-rated-movies">
+            <!-- Inside the loop where low-rated movies are displayed -->
+            {% for movie, tmdb_link, poster_path, user_score in low_rated_movies %}
+            <li>
+                <img src="{{ poster_path }}" alt="{{ movie }}">
+                <h3>{{ movie }}</h3>
+                <a href="{{ tmdb_link }}" target="_blank">TMDB</a>
+                {% if user_score is not none %}
+                    {% if user_score is not none %}
+                        <p>User Score: {{ user_score }}/10</p>
+                    {% else %}
+                        <p>User Score: Not available</p>
+                    {% endif %}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='js/dark_mode.js') }}"></script>
+</body>
+</html>

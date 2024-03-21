@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;  /* Center the content */
+}
+
+h1 {
+    color: #333;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+/* Add this class to left-align the button */
+.left-align {
+    text-align: left;
+}
+
+.stars {
+    --rating: 0;
+    --star-size: 20px;
+    --star-color: #f9ce1d;
+    --empty-star-color: #ccc;
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times;
+    line-height: 1;
+}
+.stars::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-color) var(--rating), var(--empty-star-color) var(--rating));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: width 0.25s;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.container.dark-mode {
+    background-color: #555;
+}
+
+.back-button.dark-mode {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.back-button.dark-mode:hover {
+    background-color: #0056b3;
+}
+
+.stars.dark-mode::before {
+    background: linear-gradient(90deg, #f9ce1d var(--rating), #555 var(--rating));
+}
+
