@@ -13,7 +13,7 @@ Welcome to the Movie Recommender application! This Flask-based web app suggests 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/movie-recommender.git
+   git clone https://github.com/your-username/Movie-Recommendation-App.git
    cd movie-recommender
 
 2. **Install Dependencies:**
